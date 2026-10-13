@@ -6,7 +6,6 @@ C:\Users\T.T\Projects\EdicaoFotos\bin\Debug\net10.0-windows\EdicaoFotos.pdb
 C:\Users\T.T\Projects\EdicaoFotos\obj\Debug\net10.0-windows\MainWindow.g.cs
 C:\Users\T.T\Projects\EdicaoFotos\obj\Debug\net10.0-windows\App.g.cs
 C:\Users\T.T\Projects\EdicaoFotos\obj\Debug\net10.0-windows\EdicaoFotos_MarkupCompile.cache
-C:\Users\T.T\Projects\EdicaoFotos\obj\Debug\net10.0-windows\EdicaoFotos_MarkupCompile.lref
 C:\Users\T.T\Projects\EdicaoFotos\obj\Debug\net10.0-windows\MainWindow.baml
 C:\Users\T.T\Projects\EdicaoFotos\obj\Debug\net10.0-windows\EdicaoFotos.g.resources
 C:\Users\T.T\Projects\EdicaoFotos\obj\Debug\net10.0-windows\EdicaoFotos.GeneratedMSBuildEditorConfig.editorconfig
@@ -18,3 +17,6 @@ C:\Users\T.T\Projects\EdicaoFotos\obj\Debug\net10.0-windows\refint\EdicaoFotos.d
 C:\Users\T.T\Projects\EdicaoFotos\obj\Debug\net10.0-windows\EdicaoFotos.pdb
 C:\Users\T.T\Projects\EdicaoFotos\obj\Debug\net10.0-windows\EdicaoFotos.genruntimeconfig.cache
 C:\Users\T.T\Projects\EdicaoFotos\obj\Debug\net10.0-windows\ref\EdicaoFotos.dll
+C:\Users\T.T\Projects\EdicaoFotos\obj\Debug\net10.0-windows\EdicaoFotos.sourcelink.json
+c:\Users\T.T\Projects\EdicaoFotos\obj\Debug\net10.0-windows\EditorWindow.baml
+c:\Users\T.T\Projects\EdicaoFotos\obj\Debug\net10.0-windows\EditorWindow.g.cs

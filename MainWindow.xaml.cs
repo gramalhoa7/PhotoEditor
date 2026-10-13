@@ -20,4 +20,19 @@ public partial class MainWindow : Window
     {
         InitializeComponent();
     }
+
+    private void SelectImageButton_Click(object sender, RoutedEventArgs e)
+    {
+        // Create an OpenFileDialog to select an image
+        Microsoft.Win32.OpenFileDialog openFileDialog = new Microsoft.Win32.OpenFileDialog();
+        openFileDialog.Filter = "Image files (*.jpg, *.jpeg, *.png)|*.jpg;*.jpeg;*.png|All files (*.*)|*.*";
+
+        // Show the dialog and check if the user selected a file
+        if (openFileDialog.ShowDialog() == true)
+        {
+            var editorWindow = new EditorWindow(openFileDialog.FileName);
+            editorWindow.Show();
+            this.Close(); // Close the main window after opening the editor window'
+        }
+    }
 }
