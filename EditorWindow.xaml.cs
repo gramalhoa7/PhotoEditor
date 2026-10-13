@@ -47,6 +47,18 @@ public partial class EditorWindow : Window
         panel.Visibility = Visibility.Visible;
     }
 
+    //Master function
+    private byte Adjust(byte color, double contrast, double brightness)
+    {
+        double factor = (100.0 + contrast) / 100.0;
+        double v = Math.Clamp((color - 128) * factor + 128, 0, 255);   // 1) contraste
+
+        double t = Math.Abs(brightness) / 100.0;                        // 2) brilho
+        v = brightness >= 0 ? v + (255 - v) * t : v * (1 - t);
+
+        return (byte)Math.Round(v);
+    }
+
 
 
 
@@ -92,17 +104,6 @@ public partial class EditorWindow : Window
                                          PixelFormats.Bgra32, null, pixels, stride);
         result.Freeze();
         return result;
-    }
-
-    private byte Adjust(byte color, double contrast, double brightness)
-    {
-        double factor = (100.0 + contrast) / 100.0;
-        double v = Math.Clamp((color - 128) * factor + 128, 0, 255);   // 1) contraste
-
-        double t = Math.Abs(brightness) / 100.0;                        // 2) brilho
-        v = brightness >= 0 ? v + (255 - v) * t : v * (1 - t);
-
-        return (byte)Math.Round(v);
     }
 
     //slider and textbox
@@ -178,14 +179,6 @@ public partial class EditorWindow : Window
                                          PixelFormats.Bgra32, null, pixels, stride);
         result.Freeze();
         return result;
-    }
-
-    private byte AdjustBrightnessF(byte color, double brightness)
-    {
-        double f = brightness / 100.0; // Convert percentage to a factor
-
-        double r = brightness >= 0 ? color + (255 - color)*f : color * (1 - f); // Adjust brightness based on the factor
-        return (byte)Math.Round(r);
     }
 
     private void BrightnessSlider_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
