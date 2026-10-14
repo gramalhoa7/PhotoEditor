@@ -57,13 +57,17 @@
                 <!-- ferramentas principais -->
                 <StackPanel x:Name="MainToolsPanel" Orientation="Horizontal"
                             HorizontalAlignment="Center" VerticalAlignment="Center">
-                    <Button x:Name="MirrorToolButton" Content="Espelhar" Width="100" Height="64" Margin="6"/>
-
                     <!-- contraste -->
                     <Button x:Name="ContrastButton" Content="Contraste" Click="ContrastButton_Click" Width="100" Height="64" Margin="6"/>
 
                     <!-- brilho -->
                     <Button x:Name="BrightnessButton" Content="Brilho" Click="BrightnessButton_Click" Width="100" Height="64" Margin="6"/>
+                    
+                    <!-- gama -->
+                    <Button x:Name="GammaButton" Content="Gama" Click="GammaButton_Click" Width="100" Height="64" Margin="6"/>
+
+                    <!-- Chroma Key -->
+                    <Button x:Name="ChromaKeyButton" Content="ChromaKey" Width="100" Height="64" Margin="6"/>
                 </StackPanel>
 
                 <!-- contraste -->
@@ -104,13 +108,61 @@
                     KeyDown="BrightnessTextBox_KeyDown"/>
                 </StackPanel>
 
-                <!-- espelhar -->
-                <StackPanel x:Name="MirrorPanel" Orientation="Horizontal"
-                            HorizontalAlignment="Center" VerticalAlignment="Center"
-                            Visibility="Collapsed">
-                    <Button x:Name="MirrorBackButton" Content="← Voltar" Width="100" Height="64" Margin="6"/>
-                    <Button x:Name="MirrorHorizontalButton" Content="Horizontal" Width="100" Height="64" Margin="6"/>
-                    <Button x:Name="MirrorVerticalButton" Content="Vertical" Width="100" Height="64" Margin="6"/>
+                <!-- GAMA -->
+                <StackPanel x:Name="GammaPanel" Orientation="Horizontal"
+                    HorizontalAlignment="Center" VerticalAlignment="Center"
+                    Visibility="Collapsed">
+
+                    <Button x:Name="GammaBackButton" Content="← Voltar" Click="GammaBackButton_Click" Width="100" Height="64" Margin="6"/>
+
+                    <!-- Gráfico da curva -->
+                    <Border Margin="16,0,16,0" BorderBrush="#444" BorderThickness="1" CornerRadius="4"
+                        Width="112" Height="112" VerticalAlignment="Center">
+                        <Canvas x:Name="GammaCanvas" Width="110" Height="110"
+                            Background="#1A1A1A" ClipToBounds="True" 
+                            MouseMove="GammaCanvas_MouseMove" MouseUp="GammaCanvas_MouseUp">
+
+                            <!-- Grade -->
+                            <Line X1="27.5" Y1="0" X2="27.5" Y2="110" Stroke="#333" StrokeThickness="1"/>
+                            <Line X1="55"   Y1="0" X2="55"   Y2="110" Stroke="#333" StrokeThickness="1"/>
+                            <Line X1="82.5" Y1="0" X2="82.5" Y2="110" Stroke="#333" StrokeThickness="1"/>
+                            <Line X1="0" Y1="27.5" X2="110" Y2="27.5" Stroke="#333" StrokeThickness="1"/>
+                            <Line X1="0" Y1="55"   X2="110" Y2="55"   Stroke="#333" StrokeThickness="1"/>
+                            <Line X1="0" Y1="82.5" X2="110" Y2="82.5" Stroke="#333" StrokeThickness="1"/>
+
+                            <!-- Diagonal de referência (sem mudança) -->
+                            <Line X1="0" Y1="110" X2="110" Y2="0"
+                                Stroke="#777" StrokeThickness="1" StrokeDashArray="3 3"/>
+
+                            <!-- Curva (começa igual à diagonal; o código vai trocar os pontos) -->
+                            <Polyline x:Name="GammaCurve" Points="0,110 110,0"
+                                Stroke="#4DA3FF" StrokeThickness="2"/>
+
+                            <!-- Ponto arrastável (centro em 55,55) -->
+                            <Ellipse x:Name="GammaPoint" Width="12" Height="12"
+                                Fill="#4DA3FF" Stroke="White" StrokeThickness="2"
+                                Canvas.Left="49" Canvas.Top="49" Cursor="Hand"
+                                MouseDown="GammaPoint_MouseDown"/>
+                        </Canvas>
+                    </Border>
+
+                    <TextBlock Text="Gama" Foreground="White" VerticalAlignment="Center" Margin="0,0,8,0"/>
+
+                    <Slider x:Name="GammaSlider" Minimum="0.2" Maximum="3" Value="1"
+                        Width="260" VerticalAlignment="Center"
+                        IsSnapToTickEnabled="True" TickFrequency="0.05"
+                        ValueChanged="GammaSlider_ValueChanged"/>
+                        
+                    <TextBox x:Name="GammaTextBox" Text="1" Width="55" Height="28" Margin="12,0,0,0"
+                        VerticalAlignment="Center" VerticalContentAlignment="Center"
+                        TextAlignment="Center" KeyDown="GammaTextBox_KeyDown"/>
+                </StackPanel>
+
+                <!-- Chroma Key -->
+                <StackPanel x:Name="ChromaKeyPanel" Orientation="Horizontal"
+                    HorizontalAlignment="Center" VerticalAlignment="Center"
+                    Visibility="Collapsed">
+
                 </StackPanel>
 
             </Grid>

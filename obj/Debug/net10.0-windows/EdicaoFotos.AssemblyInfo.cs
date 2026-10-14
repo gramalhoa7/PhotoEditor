@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("EdicaoFotos")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+b921740f82aa438f91ece28142a5f233efe66801")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+f29a86632d9967b1d0b0098c8e2a583dc2dec07d")]
 [assembly: System.Reflection.AssemblyProductAttribute("EdicaoFotos")]
 [assembly: System.Reflection.AssemblyTitleAttribute("EdicaoFotos")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
